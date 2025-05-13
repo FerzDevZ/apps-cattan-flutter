@@ -6,6 +6,9 @@ class Note {
   String content;
   DateTime dateCreated;
   Color color;
+  Color textColor;
+  double fontSize;
+  String fontFamily;
 
   Note({
     required this.id,
@@ -13,5 +16,8 @@ class Note {
     required this.content,
     required this.dateCreated,
     this.color = Colors.white,
+    this.textColor = Colors.black,
+    this.fontSize = 16.0,
+    this.fontFamily = 'Poppins',
   });
 }

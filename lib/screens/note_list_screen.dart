@@ -23,6 +23,22 @@ class _NoteListScreenState extends State<NoteListScreen> {
     const Color(0xFFFFD6FF),
     const Color(0xFFBFE9FF),
     const Color(0xFFFFB5E8),
+    const Color(0xFFFFF3CD),
+    const Color(0xFFD4EDDA),
+    const Color(0xFFCCE5FF),
+    const Color(0xFFF8D7DA),
+    const Color(0xFFE2E3E5),
+    const Color(0xFFE0F7FA),
+    const Color(0xFFFFF8E1),
+  ];
+
+  final List<Color> _textColors = [
+    Colors.black,
+    Colors.blue[900]!,
+    Colors.green[900]!,
+    Colors.purple[900]!,
+    Colors.red[900]!,
+    Colors.brown[900]!,
   ];
 
   @override
@@ -31,7 +47,7 @@ class _NoteListScreenState extends State<NoteListScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 120.0,
+            expandedHeight: 140.0,
             floating: true,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -39,10 +55,20 @@ class _NoteListScreenState extends State<NoteListScreen> {
                 'Catatan Saya',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
+                  fontSize: 24,
                 ),
               ),
               background: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Theme.of(context).colorScheme.primaryContainer,
+                      Theme.of(context).colorScheme.secondaryContainer,
+                    ],
+                  ),
+                ),
               ),
             ),
             actions: [
@@ -185,15 +211,10 @@ class _NoteListScreenState extends State<NoteListScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _addNewNote,
-        label: Row(
-          children: [
-            const Icon(Icons.add),
-            const SizedBox(width: 8),
-            Text(
-              'Catatan Baru',
-              style: GoogleFonts.poppins(),
-            ),
-          ],
+        icon: const Icon(Icons.add),
+        label: Text(
+          'Catatan Baru',
+          style: GoogleFonts.poppins(),
         ),
       ),
     );
